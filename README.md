@@ -7,16 +7,18 @@ Settings:
 Default IP: 127.0.0.1
 Default Port: 25565
 
-If need to be changed
+First test if you can run the server.py and have the client.py connect to it seamlessly, 
+How to run:
+- run the server.py file (either double clicking the file, or through command line)
+- run the client.py file (can run multiple to connect to same server for testing purposes)
 
+
+If the client is able to seamlessly connect, no need to edit files otherwise
 - edit server.py 
     - Line 258 and 259 to the specific IP and ports you would want
 - edit client.py
     - Line 10 and 11 with the same IP and ports you edited in server.py
 
-How to run:
-- run the server.py file (either double clicking the file, or through command line)
-- run the client.py file (can run multiple to connect to same server for testing purposes)
 
 Instructions to play:
 - Once you run the client.py file, you will be asked to enter a username,
