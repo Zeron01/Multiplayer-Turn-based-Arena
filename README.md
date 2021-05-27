@@ -6,7 +6,7 @@ Settings:
 
 Default IP: 127.0.0.1
 Default Port: 25565
-If need to be changed if the following are not available:
+If need to be changed
 - edit server.py 
     - Line 258 and 259 to the specific IP and ports you would want
 - edit client.py
