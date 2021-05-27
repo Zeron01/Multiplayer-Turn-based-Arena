@@ -8,6 +8,7 @@ Default IP: 127.0.0.1
 Default Port: 25565
 
 First test if you can run the server.py and have the client.py connect to it seamlessly, 
+
 How to run:
 - run the server.py file (either double clicking the file, or through command line)
 - run the client.py file (can run multiple to connect to same server for testing purposes)
