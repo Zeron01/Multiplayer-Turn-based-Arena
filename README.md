@@ -36,19 +36,19 @@ Testing multiplayer commands:
         you would need to be in the lobby to request any fights, you are unable to start a fight
         within the chatrooms/spectate rooms. 
 
-        Example of /fight:
-            username: Bob
-            username: Billy
+   - Example of /fight:
+        username: Bob
+        username: Billy
 
-            If bob wants to fight bill, bob would enter "/fight", then bill
-            
-            bill on his screen would see:
-                Would you want to fight bob (y/n)
+        If bob wants to fight bill, bob would enter "/fight", then bill
 
-            Based on bill's response, the fight will either begin, or not
+        bill on his screen would see:
+        Would you want to fight bob (y/n)
 
-    - To test the /spectate,
-        There has to already be an on-going fight with two users,
-        while there is a fight on-going, the user can enter "/spectate", then enter the 
-        arena number to select the room. From there, they will be able to watch the fight.
-        If the user wishes to leave, they can enter /leave and return to the lobby.
+        Based on bill's response, the fight will either begin, or not
+
+- To test the /spectate,
+    There has to already be an on-going fight with two users,
+    while there is a fight on-going, the user can enter "/spectate", then enter the 
+    arena number to select the room. From there, they will be able to watch the fight.
+    If the user wishes to leave, they can enter /leave and return to the lobby.
