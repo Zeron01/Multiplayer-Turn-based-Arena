@@ -45,7 +45,7 @@ Testing multiplayer commands:
         username: Bob
         username: Billy
 
-        If bob wants to fight bill, bob would enter "/fight", then bill
+        If bob wants to fight bill, bob would enter "/fight", then "bill"
 
         bill on his screen would see:
         Would you want to fight bob (y/n)
