@@ -1,0 +1,3 @@
+work on async calls instead of relying on multithreading --> allows for scalability
+work on switching the project to C++
+work on the UI aspect of the game (Qt designer with C++)
