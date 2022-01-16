@@ -28,8 +28,8 @@ Testing multiplayer commands:
         within the chatrooms/spectate rooms. 
 
         Example of /fight:
-            username: Bob
-            username: Billy
+            username: bob
+            username: bill
 
             If bob wants to fight bill, bob would enter "/fight bill"
             
