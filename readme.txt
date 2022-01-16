@@ -8,18 +8,15 @@ If need to be changed if the following are not available:
 - edit settings.txt to the IP and ports you want
 
 How to run:
-- run main.py
+    - run main.py
+    - If you want to auto launch the userSim and client, type 'y' in the prompts
+        - Will launch a client window where the user will interact, and the userSim console to populate the server
+        - If you wish to test the users fighting with the userSim
+            1) Enter "2" in the main.py window, this will allow for announcement mode
+            2) Enter "BEGIN" in the main.py window and the users will begin to eventually force a battle
 
-Instructions to play:
-- Once you run the client.py file, you will be asked to enter a username,
-  enter a username, and if the server is set up properly, you will be connected
-  to the server. 
-
-- When you first connect to the server, you can use the /help command
-  to get a list of commands that are possible within the server. You are
-  able to test the majority of the commands on a single user, but for the fight
-  and spectate commands, there would need to be at least 2 users in the 
-  server to request a fight.
+    - If you do not want to auto launch the userSim and client, type 'n' for both prompts
+        - You can manually launch userSim.py and client.py as long as the server is running
 
 Testing multiplayer commands:
     - To test the /fight command, 
