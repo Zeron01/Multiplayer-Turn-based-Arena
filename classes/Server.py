@@ -215,8 +215,6 @@ class Server:
             avatar.sendMsg(Server.sendChatRooms())
             return
     def handleRequests(avatar:Player,name:str):
-        # avatar.sendMsg("Fight who?") #can be any command 
-        # name = avatar.receiveMsg()
         if not (name in Server.players and name != avatar.name):
             avatar.sendMsg("Player not found")
             return
@@ -226,7 +224,6 @@ class Server:
             avatar.sendMsg("That player is currently in another room")
             return
         #This request appender to prevent other players from requesting this specific player
-        #avatar.request.append(avatar2)
         avatar.busy = True
         avatar2.busy = True
         avatar.sendMsg("Sent fight request")
@@ -245,7 +242,6 @@ class Server:
         except (ConnectionResetError,BrokenPipeError): #user left the applicaiton before accepting
             print("HERE NOW")
             pass
-        #avatar.request.remove(avatar2)
         avatar.busy = False
         avatar2.busy = False
     def handleAvatar(avatar:Player):
@@ -284,11 +280,9 @@ class Server:
         room.refresh()
         with Server.lock:
             if room.roomType == "Lobby":
-                #room.broadcast(f"{Server.getTime()} {avatar.name} left the server")
                 room.broadcast(f"{Server.sendChatRooms()}\n{avatar.name} left the server")
             elif room.roomType == "Chat":
                 print("Was in room")
-                #room.broadcast(f"{Server.getTime()} {avatar.name} unexpectedly left") 
                 room.broadcast(f"{Server.sendChatRooms()}\n{avatar.name} unexpectedly left")   
             time.sleep(0.005)
     def gameRoom(player1: Player,player2: Player):

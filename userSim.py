@@ -32,9 +32,6 @@ class UserSim:
             thread.start()
             index+=1
         print("\n\nIn order to have the bots fight each other, go into (2) in the menu and enter 'BEGIN' to start the simulation")
-
-
-
 if __name__ == "__main__":
     print("Initializing...")
     UserSim.initLists()

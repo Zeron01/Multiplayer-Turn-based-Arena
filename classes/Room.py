@@ -48,11 +48,6 @@ class Room:
                 except OSError:
                     #If the client is no longer connected, disonnect them from the room
                     kicked.append(key)
-        # for player in kicked:
-        #     try:
-        #         self.leave(self[player])
-        #     except KeyError:
-        #         pass
     def addPlayer(self,avatar: Player):
         with self.lock:
             self.players[avatar.name] = avatar
