@@ -17,7 +17,7 @@ How to run:
 
     - If you do not want to auto launch the userSim and client, type 'n' for both prompts
         - You can manually launch userSim.py and client.py as long as the server is running
-
+    - Use /help once logged in on the server in the client.py window
 Testing multiplayer commands:
     - To test the /fight command, 
         Open another client.py file, create another user,
