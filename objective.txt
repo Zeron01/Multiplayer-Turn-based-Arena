@@ -1,3 +1,2 @@
-Fix any issues that occur whenever a user suddenly disconnects.
-Improve automation of testing the server in the userSim.py file
-Start thinking about using async calls instead of multithreading to lower usage for scalability. 
+- Planning for the Website version of the implementation instead of terminal
+- Currently learning Django to make this happen
