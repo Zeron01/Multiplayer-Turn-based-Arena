@@ -2,12 +2,14 @@ import asyncio
 import threading
 import socket
 import time
+import fileIO
 from datetime import datetime
 from typing import Tuple
 import traceback
 from classes.Player import Player
 from classes.Room import Room
 from classes.Arena import Arena
+
 import os
 class Server:
     server = socket.socket(socket.AF_INET,socket.SOCK_STREAM) 
@@ -18,13 +20,19 @@ class Server:
     def initServer():
         if Server.__initialized:
             print("Server is already initialized")
-            return
+            return True
         while True:
-            fh = open('settings.txt')
-            content = fh.readlines()
-            fh.close()
-            host = content[0][4:].rstrip("\n")
-            port = content[1][6:].rstrip("\n")
+            try:
+                host,port = fileIO.retrieveHostPort()
+            except IOError:
+                print("Server cannot be initialized, file failed to be read")
+                return False
+            except IndexError:
+                if fileIO.updateHostPort() == -1:
+                    print("Server cannot be initialized, file failed to be read")
+                    return False
+                print("Reverting file to default state, index error, reattempting with default")
+                continue
             try:
                 Server.server.bind((host,int(port)))
                 Server.HOST  = host
@@ -32,9 +40,9 @@ class Server:
                 break
             except (socket.gaierror,ValueError):
                 print("Not valid format, using default settings")
-                fh = open('settings.txt','w')
-                fh.write("IP: 127.0.0.1\nPORT: 25565")
-                fh.close()
+                if fileIO.updateHostPort() == -1:
+                    print("Server cannot be initialized, file failed to be read")
+                    return False
         Server.server.listen()
         print(f"Server is now listening for clients on {host}:{port}")
         Server.serverRooms["Lobby"] = Room("Lobby")
@@ -44,6 +52,7 @@ class Server:
         Server.serverRooms["Chat"].append(Room("Chat"))
         Server.serverRooms["Chat"].append(Room("Chat"))
         Server.__initialized = True
+        return True
     def receive():
         if not Server.__initialized:
             print("Server has not been initialized, use Server.initServer() first")
@@ -101,7 +110,7 @@ class Server:
             fights+= "Arena "+str(x+1)+"\n"+arenas[x].displayRoom()
             fights+="\n\n"
         border = "\n"+"="*20
-        return (border+lobbyChat+message+fights)
+        return (border+lobbyChat+message+fights+border+'\n')
     def getTime():
         now = datetime.now()
         hours = int(now.hour)
@@ -348,4 +357,3 @@ class Server:
                 if kicked in Server.players:
                     Server.players[kicked].sendMsg("You have been kicked by the admin")
                     Server.players[kicked].client.close()
-

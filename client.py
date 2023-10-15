@@ -4,13 +4,13 @@ import sys
 import time
 import os
 import time
-
+import fileIO
 class Client:
     def __init__(self,name:str="Bob") -> None:
         self.name = name
         self.client:socket.socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.message = "" 
-    def receive(self,display = True):
+    def receive(self):
         while True:
             try:
                 message = self.client.recv(1024).decode('ascii')
@@ -18,18 +18,10 @@ class Client:
                 if message == 'NICK':
                     self.client.send(self.name.encode('ascii'))
                     continue
-                elif "NOTIFY" == message and os.name =='nt':
-                    self.client.send("NOTIFY".encode("ascii"))
-                    if not display:
-                        print(f"{self.name} received a challenge")
-                        time.sleep(5)
-                        self.client.send("y".encode("ascii"))
-                        print(f"{self.name} accepted")
-                        time.sleep(0.2)
+                elif "NOTIFY" == message:
+                    if  os.name =='nt': self.client.send("NOTIFY".encode("ascii"))
                     continue
-                if not display:
-                    continue
-                if "Clear" in message:
+                if  len(message) >= len("Clear") and message[0:5]=="Clear":
                     os.system('cls' if os.name == 'nt' else 'clear')
                     print(message.replace("Clear",""))
                 else:
@@ -43,12 +35,12 @@ class Client:
             except ConnectionAbortedError:
                 self.client.close()
                 break
-    def write(self):
+    def write(self,visible):
         try:
             while True:
                 message = input("")
                 #line below is meant to hide the user input immediately after they enter, makes the chat rooms a lot more nicer to look at
-                print("\033[A                             \033[A")
+                if not visible:print("\033[A                             \033[A")
                 try:  
                     self.client.send(message.encode('ascii'))
                 except UnicodeEncodeError:
@@ -56,65 +48,42 @@ class Client:
         except OSError:
             return
     def start(self):
+        print("----------")
+        print("Warning: You should not see this message")
+        print("\033[A                             \033[A")
+        print("Did you see a warning message above? (y/n)")
+        visible = False
         while True:
-            try:
-                fh = open('settings.txt')
-                content = fh.readlines()
-                fh.close()
-                host = content[0][4:].rstrip("\n")
-                port = content[1][6:].rstrip("\n")
-                self.client.connect((host,int(port)))
+            check = input(">")
+            if check == 'y':
+                visible = True
+                print("Not capable of clearing user input")
+                time.sleep(1)
                 break
-            except (socket.gaierror,ValueError):
-                print("Error: Not valid format, please ensure the IPs and PORT are correct in settings.txt")
-            except (ConnectionRefusedError):
-                print("Error: No connection was made, please ensure that there is an active connection before attempting to connect")
-            input ("Enter any key to quit\n")
+            elif check == 'n':
+                break
+            else:
+                print("Please choose valid option")
+        try:
+            host,port = fileIO.retrieveHostPort()
+        except (IOError,IndexError):
+            print("Error when parsing settings, exiting...")
             return -1
-        receive_thread = threading.Thread(target=self.receive)
-        receive_thread.start()
-        write_thread = threading.Thread(target=self.write)
-        write_thread.start()
-    def debug(self,num:str="",command="fight"):
-        if num == 0:
-            num = ""
-        while True:
-            try:
-                fh = open('settings.txt')
-                content = fh.readlines()
-                fh.close()
-                host = content[0][4:].rstrip("\n")
-                port = content[1][6:].rstrip("\n")
-                self.client.connect((host,int(port)))
-                break
-            except (socket.gaierror,ValueError):
-                print("Error: Settings have incorrect IP format")
-                return -1
-            except (ConnectionRefusedError):
-                print("Error: No connection was made")
-                return -1
-        thread1 = threading.Thread(target=self.receive,args=(False,))
-        thread1.start()
-        while True:
-            if "BOT" in self.name:
-                break
-            if self.message != "BEGIN":
-                continue
-            #line below is meant to hide the user input immediately after they enter, makes the chat rooms a lot more nicer to look at
-            time.sleep(5)
-            if command == "spectate":
-                time.sleep(20)
-                self.client.send(f"/{command} {num}".encode("ascii"))
-            elif command == "fight": 
-                self.client.send(f"/{command} [BOT]{num}".encode("ascii"))
-            self.message = ""
-     
+        try:
+            self.client.connect((host,int(port)))
+            receive_thread = threading.Thread(target=self.receive)
+            receive_thread.start()
+            write_thread = threading.Thread(target=self.write,args=(visible,))
+            write_thread.start()
+        except (socket.gaierror,ValueError):
+            print("Error: Not valid format, please ensure the IPs and PORT are correct in settings.txt")
+            return -1
+        except (ConnectionRefusedError):
+            print("Error: No connection was made, please ensure that there is an active connection before attempting to connect")
+            return -1
 def __main():
     x = input("Enter nickname\n>")
     player = Client(x)
     player.start()
-
-
-
 if __name__ == "__main__":
     __main()

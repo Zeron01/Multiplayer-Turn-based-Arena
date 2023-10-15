@@ -14,7 +14,9 @@ def handleInput(message) -> bool:
 
 def main():
     print("Setting up server")
-    Server.initServer()
+    if not Server.initServer():
+        print("Server has failed to start...exiting")
+        return
     client = handleInput("Would you like to connect to the server using a client (opens another console)? (y/n)")
     sim = handleInput("Would you like to simulate a user base (adds 12 users)? (y/n)")
     threadRecieve = threading.Thread(target=Server.receive)

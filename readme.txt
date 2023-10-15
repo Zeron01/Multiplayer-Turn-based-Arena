@@ -1,5 +1,8 @@
 Make sure you have python 3.9.4+ to use the program
 
+Multiplayer implementation of my old game
+If you want to see the old version in singleplayer: https://github.com/Zeron01/Singleplayer-Turn-Based-Arena
+
 Settings:
 
 Default IP: 127.0.0.1
