@@ -13,9 +13,9 @@ Settings:<br />
  * edit settings.txt to the IP and ports you want<br />
 <br />
 How to run:<br />
-  * run main.py<br />
-  * If you want to auto-launch the userSim and client, type 'y' in the prompts<br />
-  * If you wish to test the users fighting with the userSim<br />
+ * run main.py<br />
+ * If you want to auto-launch the userSim and client, type 'y' in the prompts<br />
+ * If you wish to test the users fighting with the userSim<br />
     * 1) Enter "2" in the main.py window, this will allow for announcement mode<br />
     * 2) Enter "BEGIN" in the main.py window and the users will begin to force a battle<br />
 <br />
