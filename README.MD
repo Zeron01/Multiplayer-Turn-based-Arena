@@ -6,7 +6,6 @@ If you want to see the old version in singleplayer: https://github.com/Zeron01/S
 <br />
 <br />
 Settings:<br />
-<br />
  * Default IP: 127.0.0.1<br />
  * Default Port: 25565<br />
  * If need to be changed if the following are not available:<br />
