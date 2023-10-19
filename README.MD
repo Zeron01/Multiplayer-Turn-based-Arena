@@ -22,8 +22,8 @@ How to run:<br />
   If you do not want to auto-launch the userSim and client, type 'n' for both prompts<br />
     You can manually launch userSim.py and client.py as long as the server is running<br />
   Use /help once logged in on the server in the client.py window<br /> <br />
-Testing multiplayer commands:<br />
-  To test the /fight command, <br />
+Testing multiplayer commands:<br /> <br />
+  ---To test the /fight command--- <br />
     (1) Open another client.py file<br /> 
     (2) Create another user<br />
     (3) Once that's connected to the server, enter /fight, hit enter<br />
@@ -35,7 +35,7 @@ username: bob<br />
 username: bill<br />
       If bob wants to fight bill, bob would enter "/fight bill" <br />
       bill on his screen would see:"Would you want to fight bob (y/n)"<br />
-      Based on bill's response, the fight will either begin, or not<br />
+      Based on bill's response, the fight will either begin, or not<br /><br />
     
   To test the /spectate,<br />
     There has to already be an ongoing fight with two users while there is a fight on-going, the user can enter "/spectate {Arena #}". <br />
