@@ -29,11 +29,11 @@ Testing multiplayer commands:<br /> <br />
     (3) Once that's connected to the server, enter /fight, hit enter<br />
     (4) Then a prompt will ask you who you want to fight. Enter the user you would want<br />
     (5) To fight, and if they accept the request, the fight will begin.<br /> 
-    (!) You would need to be in the lobby to request any fights, you are unable to start a fight within the chatrooms/spectate rooms. <br />
+    (!) You would need to be in the lobby to request any fights<br />
 Example of /fight:<br />
-username: bob<br />
-username: bill<br />
-      If bob wants to fight bill, bob would enter "/fight bill" <br />
+--username: bob<br />
+--username: bill<br />
+      --If bob wants to fight bill, bob would enter "/fight bill" <br />
       bill on his screen would see:"Would you want to fight bob (y/n)"<br />
       Based on bill's response, the fight will either begin, or not<br /><br />
     
