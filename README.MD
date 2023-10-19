@@ -7,16 +7,15 @@ If you want to see the old version in singleplayer: https://github.com/Zeron01/S
 <br />
 Settings:<br />
 <br />
-    Default IP: 127.0.0.1<br />
-    Default Port: 25565<br />
-  *-If need to be changed if the following are not available:<br />
+    - Default IP: 127.0.0.1<br />
+    - Default Port: 25565<br />
+	- If need to be changed if the following are not available:<br />
   *-edit settings.txt to the IP and ports you want<br />
 <br />
 How to run:<br />
   -run main.py<br />
   -If you want to auto-launch the userSim and client, type 'y' in the prompts<br />
-    -Will launch a client window where the user will interact, and the userSim console to populate the server<br />
-    If you wish to test the users fighting with the userSim<br />
+  -If you wish to test the users fighting with the userSim<br />
       1) Enter "2" in the main.py window, this will allow for announcement mode<br />
       2) Enter "BEGIN" in the main.py window and the users will begin to force a battle<br />
 <br />
