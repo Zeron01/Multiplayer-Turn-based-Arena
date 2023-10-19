@@ -33,9 +33,10 @@ Testing multiplayer commands:<br /> <br />
 Example of /fight:<br />
 --username: bob<br />
 --username: bill<br />
-      --If bob wants to fight bill, bob would enter "/fight bill" <br />
-      bill on his screen would see:"Would you want to fight bob (y/n)"<br />
-      Based on bill's response, the fight will either begin, or not<br /><br />
+      --If bob wants to fight bill <br />
+      --bob would enter "/fight bill" <br />
+      --bill on his screen would see:"Would you want to fight bob (y/n)"<br />
+      --Based on bill's response, the fight will either begin, or not<br /><br />
     
   To test the /spectate,<br />
     There has to already be an ongoing fight with two users while there is a fight on-going, the user can enter "/spectate {Arena #}". <br />
