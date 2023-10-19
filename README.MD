@@ -14,7 +14,7 @@ Multiplayer implementation of my old game
 - Once the server is online, launch client.py
 	- Prompt for warning message
 		- If visible, enter 'y', otherwise enter 'n' 
-			- Only relevant for hiding user input in chatrooms on their own terminal
+		- Only relevant for hiding user input in chatrooms on their own terminal
 	- Enter the desired username
 	- You should have been able to connect to the server
 	- If not, adjust settings.txt to IP and ports available on the system
@@ -31,14 +31,13 @@ Multiplayer implementation of my old game
 		- Example:
 			- username: bob
 			- username: bill
-				- If bob wants to fight bill
-				- Bob would enter "/fight bill"
-				- Bill would type 'y' once prompted "Would you want to fight bob"
-				- Fight will begin once accepted
+			- If bob wants to fight bill
+			- Bob would enter "/fight bill"
+			- Bill would type 'y' once prompted "Would you want to fight bob"
 - ##### /spectate {Arena #}
 	- Able to spectate other people fighting
 	- To do so:
-		- Requires an ongoing fight, follow steps in /fight to do so, or follow userSim steps
+		- Requires an ongoing fight
 		- User can enter "/spectate {Arena #}"
 		- If they wish to leave the spectate, enter "/leave"
 		- Example:
