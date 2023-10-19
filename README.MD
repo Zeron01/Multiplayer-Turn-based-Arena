@@ -12,9 +12,12 @@ Multiplayer implementation of my old game
 #### How to run:
 - Run main.py
 - Once server is online, launch client.py
-- Enter desired username
-- You should have been able to connect to the server
-- If not, adjust settings.txt to IP and ports available on system
+	- Prompt for warning message
+		- If visible, enter 'y', otherwise enter 'n' 
+			- Only relevant for hiding user input in chatrooms on their own terminal
+	- Enter desired username
+	- You should have been able to connect to the server
+	- If not, adjust settings.txt to IP and ports available on system
 
 #### Multiplayer Commands
 - ##### /fight {username}
