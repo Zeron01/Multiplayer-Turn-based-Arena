@@ -1,4 +1,4 @@
-
+## Multiplayer Turn-based Arena
 Make sure you have python 3.9.4+ to use the program
 
 Multiplayer implementation of my old game
@@ -10,32 +10,52 @@ Multiplayer implementation of my old game
 - Edit settings.txt to desired IP and ports if needed
 
 #### How to run:
-- run main.py
-- If you want to auto-launch userSim and client, type 'y' in the prompts
-- If you want to test the users fighting with the userSim
-	- Enter "2" in the main.py window, this will allow for announcement mode
-	- Enter "BEGIN" in the main.py window and the users will begin to force a battle
-- You can manually launch userSim.py, and client.py, given that the server is running
+- Run main.py
+- Once server is online, launch client.py
+- Enter desired username
+- You should have been able to connect to the server
+- If not, adjust settings.txt to IP and ports available on system
 
-#### Testing Multiplayer Commands
+#### Multiplayer Commands
+- ##### /fight {username}
+	- Able to fight other users in auto-turned based combat
+	- To do so
+		- Open another client.py file 
+		- Create the user
+		- Once connected, enter /fight {username}
+		- If the opposing user accepts, fight willl begin
+		- !! Need to be in lobby in order to request fights
+		- Example:
+			- username: bob
+			- username: bill
+				- If bob wants to fight billl
+				- Bob would enter "/fight bill"
+				- Bill would type 'y' once prompted "Would you want to fight bob"
+				- Fight will begin once accepted
+- ##### /spectate {Arena #}
+	- Able to spectate other people fighting
+	- To do so:
+		- Requires an on-going fight, follow steps in /fight to do so, or follow userSim steps
+		- User can enter "/spectate {Arena #}"
+		- If they wish to leave the spectate, enter "/leave"
+		- Example:
+			- If there is an on-going game in Arena 1, a player would type "/spectate 1"
+- ##### /list
+	- Lists all the lobby rooms
+- ##### /leaderboards
+	- Lists the player leaderboards
+- ##### /profile
+	- List your profile, and user stats
+- ##### /join {Room #}
+	- Join a chatroom listed in the lobby
+- ##### /leave
+	- If in a chatroom, or in a arena; go back to lobby
 
-- ##### /fight
-	- Open another client.py file 
-	- Create the user
-	- Once connected, enter /fight {username}
-	- If the opposing user accepts, fight will begin
-	- !! Need to be in lobby in order to request fights
-	- Example:
-		- username: bob
-		- username: bill
-			- If bob wants to fight bill
-			- Bob would enter "/fight bill"
-			- Bill would type 'y' once prompted "Would you want to fight bob"
-			- Fight will begin once accepted
-- ##### /spectate 
-	- Requires an on-going fight, follow steps in /fight to do so, or follow userSim steps
-	- If there's already a fight
-	- User can enter "/spectate {Arena #}"
-	- If they wish to leave the spectate, enter "/leave"
-	- Example:
-		- If there is an on-going game in Arena 1, a player would type "/spectate 1"
+#### Automatic Battles
+- Without having to launch multiple client.py files,  launch the userSim.py file while the server is running
+- Once done, a bunch of bots would join the server
+- If you wish the bots to fight against each other
+	- Enter "2" in the main.py window (announcement mode)
+	- Enter "BEGIN" in the main.py window
+	- Bots will then force a battle
+	- Suggested to have at least one client in the server in order to view the arenas getting populated
