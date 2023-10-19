@@ -58,4 +58,5 @@ Multiplayer implementation of my old game
 	- Enter "2" in the main.py window (announcement mode)
 	- Enter "BEGIN" in the main.py window
 	- Bots will then force a battle
+	- Enter "exit" in main.py to leave announcement mode
 	- Suggested to have at least one client in the server in order to view the arenas getting populated
